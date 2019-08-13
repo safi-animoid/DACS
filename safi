@@ -1,0 +1,432 @@
+#!/bin/bash
+echo "Starting S.A.F.I..."
+echo "Setting gpio pin variables..."
+	okl="18"
+	echo "	okl = $okl"
+	osf="23"
+	echo "	osf = $osf"
+	ohf="24"
+	echo "	ohf = $ohf"
+	mnt="25"
+	echo "	mnt = $mnt"
+	bnk="12"
+	echo "	bnk = $bnk"
+	olr="16"
+	echo "	olr = $olr"
+	olg="20"
+	echo "	olg = $olg"
+	olb="21"
+	echo "	olb = $olb"
+#	ibt="7"
+#	echo "	ibt = $ibt"
+	ibh="16"
+	echo "	ibh = $ibh"
+	ib1="10"
+	echo "	ib1 = $ib1"
+	ib2="11"
+	echo "	ib2 = $ib2"
+	ib3="30"
+	echo "	ib3 = $ib3"
+	ib4="21"
+	echo "	ib4 = $ib4"
+	ib5="22"
+	echo "	ib5 = $ib5"
+echo "Exporting gpio pin modes..."
+#	gpio export $ibt in
+#	echo "	pin $ibt (ibt) to 'in'"
+	gpio export $ibh in
+	echo "	pin $ibh (ibh) to 'in'"
+	gpio export $ib1 in
+	echo "	pin $ib1 (ib1) to 'in'"
+	gpio export $ib2 in
+	echo "	pin $ib2 (ib2) to 'in'"
+	gpio export $ib3 in
+	echo "	pin $ib3 (ib3) to 'in'"
+	gpio export $ib4 in
+	echo "	pin $ib4 (ib4) to 'in'"
+	gpio export $ib5 in
+	echo "	pin $ib5 (ib5) to 'in'"
+	gpio export $okl low
+	echo "	pin $okl (okl) to 'low'"
+	gpio export $osf low
+	echo "	pin $osf (osf) to 'low'"
+	gpio export $ohf low
+	echo "	pin $ohf (ohf) to 'low'"
+	gpio export $mnt low
+	echo "	pin $mnt (mnt) to 'low'"
+	gpio export $bnk low
+	echo "	pin $bnk (bnk) to 'low'"
+	gpio export $olr low
+	echo "	pin $olr (olr) to 'low'"
+	gpio export $olg low
+	echo "	pin $olg (olg) to 'low'"
+	gpio export $olb low
+	echo "	pin $olb (olb) to 'low'"
+	if [[ "$1" != "notest" ]]
+	then
+	sleep 1
+#	test
+echo "Running system tests..."
+	echo "	Testing master kill relay (kil)"
+	gpio export $okl high
+	sleep 0.5
+	gpio export $okl low
+	sleep 0.75
+	echo "	Testing fan (osf)"
+	echo "		system fans (osf)"
+	gpio export $osf high
+	sleep 2
+	gpio export $osf low
+	echo "		head fans (ohf)"
+	gpio export $ohf high
+	sleep 2
+	gpio export $ohf low
+	echo "	testing rgb controlls"
+	gpio export $olr high
+	gpio export $olg high
+	gpio export $olb high
+	echo "		off"
+	sleep 1
+	gpio export $olr low
+	echo "		red"
+	sleep 1
+	gpio export $olg low
+	echo "		yellow"
+	sleep 1
+	gpio export $olr high
+	echo "		green"
+	sleep 1
+	gpio export $olb low
+	echo "		cyan"
+	sleep 1
+	gpio export $olg high
+	echo "		blue"
+	sleep 1
+	gpio export $olr low
+	echo "		magenta"
+	sleep 1
+	gpio export $olg low
+	echo "		white"
+echo "Running input tests..."
+#	echo "	press ibt"
+#	vbt=$(gpio read $ibt)
+#	while [[ "$vbt" != "0" ]] 
+#	do
+#	vbt=$(gpio read $ibt)
+#	sleep 0.1
+#	done
+	echo "	press ibh"
+	vbh=$(gpio read $ibh)
+	while [[ "$vbh" != "0" ]]
+	do
+	vbh=$(gpio read $ibh)
+	sleep 0.1
+	done
+	echo "	press ib1"
+	vb1=$(gpio read $ib1)
+	while [[ "$vb1" != "0" ]]
+	do
+	vb1=$(gpio read $ib1)
+	sleep 0.1
+	done
+	echo "	press ib2"
+	vb2=$(gpio read $ib2)
+	while [[ "$vb2" != "0" ]]
+	do
+	vb2=$(gpio read $ib2)
+	sleep 0.1
+	done
+	echo "	press ib3"
+	vb3=$(gpio read $ib3)
+	while [[ "$vb3" != "0" ]]
+	do
+	vb3=$(gpio read $ib3)
+	sleep 0.1
+	done
+	echo "	press ib4"
+	vb4=$(gpio read $ib4)
+	while [[ "$vb4" != "0" ]]
+	do
+	vb4=$(gpio read $ib4)
+	sleep 0.1
+	done
+	echo "	press ib5"
+	vb5=$(gpio read $ib5)
+	while [[ "$vb5" != "0" ]]
+	do
+	vb5=$(gpio read $ib5)
+	sleep 0.1
+	done
+	fi
+
+	echo "starting voice synthesis engine"
+	play "|rec --buffer 1024 -c 1 -d pitch 700 flanger 0 10 0 71 0.5 tri 100 lin" &>/dev/null </dev/null &
+	sleep 5
+	pavucontrol --display=:0 &
+	sleep 5
+	echo "S.A.F.I online!"
+echo "Press cont btn to start console."
+	sleep 2
+	vb5=$(gpio read $ib5)
+	while [[ "$vb5" != "0" ]]
+	do
+	vb5=$(gpio read $ib5)
+	sleep 0.1
+	done
+#console countdown	
+	echo "Starting console in 3..."
+	sleep 0.5
+	echo "Starting console in 2..."
+	sleep 0.5
+	echo "Starting console in 1..."
+	sleep 0.5
+#console interface
+
+	echo ""
+	echo "==================================================================="
+	echo ""
+#console loop
+while true
+do
+
+
+echo "-----------Menu-1----------"
+echo "Button 1 = all on"
+echo "Button 2 = restart voice engine"
+echo "Button 3 = n/a"
+echo "Button 4 = exit safi"
+echo "Button 5 = next menu"
+echo "Button h = pause & cut pwr"
+	vb5=$(gpio read $ib5)
+	vor=high
+	vog=high
+	vob=high
+	while [[ "$vb5" != "0" ]]
+	do
+	vbh=$(gpio read $ibh)
+	vb1=$(gpio read $ib1)
+	vb2=$(gpio read $ib2)
+	vb3=$(gpio read $ib3)
+	vb4=$(gpio read $ib4)
+	vb5=$(gpio read $ib5)
+	if [[ "$vbh" != "0" ]]
+	then
+	echo "Input Paused"
+	gpio export $okl high
+	echo "Pwr off"
+	sleep 2
+	while [[ "$vbh" != "0" ]]
+	do
+	vbh=$(gpio read $ibh)
+	sleep 1
+	done
+	echo Input Resumed
+	gpio export $okl low
+	echo "Pwr on"
+	fi
+	if [[ "$vb1" != "1" ]]
+	then
+	gpio export $okl low
+	gpio export $osf low
+	gpio export $ohf low
+	gpio export $mnt low
+	gpio export $bnk low
+	gpio export $olr low
+	gpio export $olg low
+	gpio export $olb low
+	echo "all relays on"
+	sleep 0.1
+	fi
+	if [[ "$vb2" != "1" ]]
+	then
+	echo "killing voice engine"
+	pkill pavucontrol
+	pkill rec -U pi
+	sleep 5 
+	echo "starting voice engine"
+	play "|rec --buffer 1024 -c 1 -d pitch 700 flanger 0 10 0 71 0.5 tri 100 lin" &>/dev/null </dev/null &
+	sleep 5
+	pavucontrol --display=:0 &
+	sleep 5
+	echo "done"
+	sleep 0.1
+	fi
+	if [[ "$vb3" != "1" ]]
+	then
+	juptto $test
+	sleep 0.1
+	fi
+	if [[ "$vb4" != "1" ]]
+	then
+	echo "exit in 3"
+	sleep 1
+	vb4=$(gpio read $ib4)
+	if [[ "$vb4" != "1" ]]
+	then
+	echo "exit in 2"
+	sleep 1
+	vb4=$(gpio read $ib4)	
+	if [[ "$vb4" != "1" ]]
+	then
+	echo "exit in 1"
+	sleep 1
+	vb4=$(gpio read $ib4)
+	if [[ "$vb4" != "1" ]]
+	then
+	echo exiting
+	gpio export $okl high
+	gpio export $osf high
+	gpio export $ohf high
+	gpio export $mnt high
+	gpio export $bnk high
+	gpio export $olr high
+	gpio export $olg high
+	gpio export $olb high
+	pkill pavucontrol
+	pkill rec -U pi
+	exit
+	fi
+	fi
+	fi
+	echo "exit canceled"
+	fi
+	sleep 0.05	
+	done	
+echo "next"
+sleep 0.5
+
+
+
+
+echo "-----------Menu-2----------"
+echo "Button 1 = hed fan on"
+echo "Button 2 = sys fan on"
+echo "Button 3 = hed fan off"
+echo "Button 4 = sys fan off"
+echo "Button 5 = next menu"
+echo "Button h = pause & cut pwr"
+	vb5=$(gpio read $ib5)
+	while [[ "$vb5" != "0" ]]
+	do
+	vbh=$(gpio read $ibh)
+	vb1=$(gpio read $ib1)
+	vb2=$(gpio read $ib2)
+	vb3=$(gpio read $ib3)
+	vb4=$(gpio read $ib4)
+	vb5=$(gpio read $ib5)
+	if [[ "$vbh" != "0" ]]
+	then
+	echo "Input Paused"
+	gpio export $okl high
+	echo "Pwr off"
+	sleep 2
+	while [[ "$vbh" != "0" ]]
+	do
+	vbh=$(gpio read $ibh)
+	sleep 1
+	done
+	echo Input Resumed
+	gpio export $okl low
+	echo "Pwr on"
+	fi
+	if [[ "$vb1" != "1" ]]
+	then
+	gpio export $ohf low
+	echo "head fans on"
+	sleep 0.1
+	fi
+	if [[ "$vb3" != "1" ]]
+	then
+	gpio export $ohf high
+	echo "head fans off"
+	sleep 0.25
+	fi
+	if [[ "$vb2" != "1" ]]
+	then
+	gpio export $osf low
+	echo "system fan on"
+	sleep 0.1
+	fi
+	if [[ "$vb4" != "1" ]]
+	then
+	gpio export $osf high
+	echo "system fans off"
+	sleep 0.1
+	fi
+	sleep 0.1	
+	done	
+echo "next"
+sleep 0.5
+
+
+
+echo "-----------Menu-3----------"
+echo "Button 1 = red channel"
+echo "Button 2 = green channel"
+echo "Button 3 = blue channel"
+echo "Button 4 = init rgb"
+echo "Button 5 = next menu"
+echo "Button h = pause & cut pwr"
+	vb5=$(gpio read $ib5)
+	vor=high
+	vog=high
+	vob=high
+	while [[ "$vb5" != "0" ]]
+	do
+	vbh=$(gpio read $ibh)
+	vb1=$(gpio read $ib1)
+	vb2=$(gpio read $ib2)
+	vb3=$(gpio read $ib3)
+	vb4=$(gpio read $ib4)
+	vb5=$(gpio read $ib5)
+	if [[ "$vbh" != "0" ]]
+	then
+	echo "Input Paused"
+	gpio export $okl high
+	echo "Pwr off"
+	sleep 2
+	while [[ "$vbh" != "0" ]]
+	do
+	vbh=$(gpio read $ibh)
+	sleep 1
+	done
+	echo Input Resumed
+	gpio export $okl low
+	echo "Pwr on"
+	fi
+	if [[ "$vb1" != "1" ]]
+	then
+	vor=low
+	echo "red on"
+	sleep 0.1
+	fi
+	if [[ "$vb2" != "1" ]]
+	then
+	vog=low
+	echo "green on"
+	sleep 0.1
+	fi
+	if [[ "$vb3" != "1" ]]
+	then
+	vob=low
+	echo "blue on"
+	sleep 0.1
+	fi
+	if [[ "$vb4" != "1" ]]
+	then
+	gpio export $olr $vor
+	gpio export $olg $vog
+	gpio export $olb $vob
+	vor=high
+	vog=high
+	vob=high
+	echo "rgb init"
+	sleep 0.1
+	fi
+	sleep 0.05	
+	done	
+echo "next"
+sleep 0.5
+
+
+done
