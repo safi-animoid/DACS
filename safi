@@ -1,36 +1,52 @@
 #!/bin/bash
+#yeah…. i’ll add some better comments later... sorry m8.
 echo "Starting S.A.F.I..."
 echo "Setting gpio pin variables..."
 	okl="18"
 	echo "	okl = $okl"
+	#gpio pin for master kill relay (Output KiLl) 
 	osf="23"
 	echo "	osf = $osf"
+	#gpio pin for system fans (Output System Fan)
 	ohf="24"
 	echo "	ohf = $ohf"
+	#gpio pin for head and body fans (Output Head Fan)
 	mnt="25"
 	echo "	mnt = $mnt"
+	#(ima be real wid u... i forgot what this was)
 	bnk="12"
 	echo "	bnk = $bnk"
+	#a blink relay that im not even using rn
 	olr="16"
 	echo "	olr = $olr"
+	#gpio pin for red RGB channel (Output Led Red) 
 	olg="20"
 	echo "	olg = $olg"
+	#gpio pin for green RGB channel (Output Led Green) 
 	olb="21"
 	echo "	olb = $olb"
+	#gpio pin for blue RGB channel (Output Led Blue) 
 #	ibt="7"
 #	echo "	ibt = $ibt"
+	#hek if i know what dis is/was
 	ibh="16"
 	echo "	ibh = $ibh"
+	#gpio pin for hand dead-man-switch(ish) (Input Button Hand)
 	ib1="10"
 	echo "	ib1 = $ib1"
+	#gpio pin for button 1 (Input Button 1)
 	ib2="11"
 	echo "	ib2 = $ib2"
+	#gpio pin for button 2 (Input Button 2)
 	ib3="30"
 	echo "	ib3 = $ib3"
+	#gpio pin for button 3 (Input Button 3)
 	ib4="21"
 	echo "	ib4 = $ib4"
+	#gpio pin for button 4 (Input Button 4)
 	ib5="22"
 	echo "	ib5 = $ib5"
+	#gpio pin for button 5 (Input Button 5)
 echo "Exporting gpio pin modes..."
 #	gpio export $ibt in
 #	echo "	pin $ibt (ibt) to 'in'"
