@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "Use this script to install safi dependencies"
+echo "Note: this program in intended to be run on a Raspberry Pi running Raspbian
+echo "This must be run as root or with 'sudo'"
+echo exiting prog under constructn
+exit
+apt-get update
+apt-get install -y sox
