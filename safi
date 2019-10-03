@@ -1,4 +1,13 @@
 #!/bin/bash
+#rewriting the code to make cleaner
+
+
+
+
+exit
+exit
+exit
+exit
 #yeah…. i’ll add some better comments later... sorry m8.
 echo "Starting S.A.F.I..."
 echo "Setting gpio pin variables..."
