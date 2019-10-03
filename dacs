@@ -1,5 +1,11 @@
 #!/bin/bash
 #rewriting the code to make cleaner
+echo "Starting Dedicated.Animoid.Computer.System:"
+echo "Configuring system environment..."
+#gpio variables:
+kil=18 #master kill relay
+sfn=23 #system fan relay
+hfn=24 #head fan relay
 
 
 
