@@ -6,12 +6,21 @@ echo "Configuring system environment..."
 kil=18 #master kill relay
 sfn=23 #system fan relay
 hfn=24 #head fan relay
+ltr=16 #RGB red relay
+ltg=20 #RGB green relay
+ltb=21 #RGB blue relay
+dms=16 #dead man switch
+bn1=10 #button 1
+bn2=11 #button 2
+bn3=30 #button 3
+bn4=21 #button 4
+bn5=22 #button 5
+
 
 #gpio mode config:
 gpio export $kil in
 gpip export $sfn in
 gpio export $hfn in
-
 
 
 echo "Starting voice synthesis engine..."
