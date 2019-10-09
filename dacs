@@ -43,6 +43,17 @@ pavucontrol --display=:0 & #start pulse control... fixes some of the bugs and la
 sleep 5
 echo "Voice synthesis active!"
 
+#quick test
+
+#when dms open
+#gpio export (all relays) high
+#when dms closed
+#gpio export (all relays) low
+#done
+
+
+#full test
+
 
 
 
