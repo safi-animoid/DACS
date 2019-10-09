@@ -4,7 +4,6 @@ echo "Warning! Code is currently untested and I advise you to read the source be
 echo "If you wish to proceed anyway remove or comment line 5 in the source code"
 exit
 
-#rewriting the code to make cleaner
 echo "Starting Dedicated.Animoid.Computer.System:"
 echo "Configuring system environment..."
 #gpio variables:
