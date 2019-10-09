@@ -1,7 +1,8 @@
 #!/bin/bash
 
 echo "Warning! Code is currently untested and I advise you to read the source before running it."
-echo "If you wish to proceed anyway remove or comment line 5 in the source code"
+echo "If you wish to proceed anyway remove or comment line 6 in the source code"
+echo "Also when it comes to programing… I am what you might call the “big dumb” so expect all kinds of errors, spagetti code, and just general bad designs. You have been warned."
 exit
 
 echo "Starting Dedicated.Animoid.Computer.System:"
