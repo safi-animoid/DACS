@@ -8,19 +8,19 @@ exit
 echo "Starting Dedicated.Animoid.Computer.System:"
 echo "Configuring system environment..."
 #gpio variables:
-kil=xx #master kill relay
-kla=xx #audio kill relay
-sfn=xx #system fan relay
-hfn=xx #head fan relay
-ltr=xx #RGB red relay
-ltg=xx #RGB green relay
-ltb=xx #RGB blue relay
-dms=xx #dead man switch
-bn1=xx #button 1
-bn2=xx #button 2
-bn3=xx #button 3
-bn4=xx #button 4
-bn5=xx #button 5
+kil=23 #master kill relay
+kla=18 #audio kill relay
+sfn=14 #system fan relay
+hfn=24 #head fan relay
+ltr=25 #RGB red relay
+ltg=16 #RGB green relay
+ltb=20 #RGB blue relay
+dms=30 #dead man switch
+bn1=10 #button 1
+bn2=21 #button 2
+bn3=22 #button 3
+bn4=16 #button 4
+bn5=11 #button 5
 
 #gpio mode config:
 gpio export $kil in
