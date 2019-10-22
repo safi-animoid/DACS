@@ -7,7 +7,9 @@ exit
 
 echo "Starting Dedicated.Animoid.Computer.System:"
 echo "Configuring system environment..."
+
 #gpio variables:
+#note: output pins are not in the correct order
 kil=23 #master kill relay
 kla=18 #audio kill relay
 sfn=14 #system fan relay
@@ -23,18 +25,18 @@ bn4=16 #button 4
 bn5=11 #button 5
 
 #gpio mode config:
-gpio export $kil in
-gpip export $sfn in
-gpio export $hfn in
-gpio export $ltr in
-gpio export $ltg in
-gpio export $ltb in
-gpio export $dms low
-gpio export $bn1 low
-gpio export $bn2 low
-gpio export $bn3 low
-gpio export $bn4 low
-gpio export $bn5 low
+gpio export $kil low
+gpip export $sfn low
+gpio export $hfn low
+gpio export $ltr low
+gpio export $ltg low
+gpio export $ltb low
+gpio mode $dms in
+gpio mode $bn1 in
+gpio mode $bn2 in
+gpio mode $bn3 in
+gpio mode $bn4 in
+gpio mode $bn5 in
 
 echo "Starting voice synthesis engine..."
 play "|rec --buffer 1024 -c 1 -d pitch 700 flanger 0 10 0 71 0.5 tri 100 lin" &>/dev/null </dev/null & #start sox to use voice changer
@@ -44,6 +46,38 @@ sleep 5
 echo "Voice synthesis active!"
 
 #quick test
+if [[ "$1" 
+echo "Running quick test..."
+echo "Release DMS" 
+test=$(gpio read $dms)
+while [[ "$test" = "0" ]]
+do
+	test=$(gpio read $dms)
+	sleep 0.1
+done
+while [[ "$test" = "1" ]]
+do
+	test=$(gpio read $dms)
+	sleep 0.1
+done
+echo "Press DMS"
+gpio export $kil high
+gpip export $sfn high
+gpio export $hfn high
+gpio export $ltr high
+gpio export $ltg high
+gpio export $ltb high
+while [[ "$test" = "0" ]]
+do
+	test=$(gpio read $dms)
+	sleep 0.1
+done
+gpio export $kil low
+gpip export $sfn low
+gpio export $hfn low
+gpio export $ltr low
+gpio export $ltg low
+gpio export $ltb low
 
 #when dms open
 #gpio export (all relays) high
