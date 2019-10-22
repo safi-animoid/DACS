@@ -45,13 +45,13 @@ pavucontrol --display=:0 & #start pulse control... fixes some of the bugs and la
 sleep 5
 echo "Voice synthesis active!"
 
-#quick test
-if [[ "$1" 
+if [[ "$1" = "q" ]]
+then
 echo "Running quick test..."
 echo "Release DMS" 
 test=$(gpio read $dms)
 while [[ "$test" = "0" ]]
-do
+d/o
 	test=$(gpio read $dms)
 	sleep 0.1
 done
@@ -78,15 +78,23 @@ gpio export $hfn low
 gpio export $ltr low
 gpio export $ltg low
 gpio export $ltb low
+else
+if [[ "$1" = "f" ]]
+then
 
-#when dms open
-#gpio export (all relays) high
-#when dms closed
-#gpio export (all relays) low
-#done
+else
+if [[ "$1" = "n" ]]
+then
 
-
-#full test
+else
+echo "error: valid test mode not spesified!"
+echo "use 'dacs [q,f,n]'"
+echo "q - run a Quick test"
+echo "f - run a Full test"
+echo "n - run No test"
+exho "termintaing..."
+exit
+fi
 
 
 
