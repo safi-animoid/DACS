@@ -85,7 +85,7 @@ then
 else
 if [[ "$1" = "n" ]]
 then
-
+echo "No test will be run."
 else
 echo "error: valid test mode not spesified!"
 echo "use 'dacs [q,f,n]'"
@@ -96,10 +96,20 @@ exho "termintaing..."
 exit
 fi
 
+echo "Starting D.A.C.S UI..."
+while true #UI loop
+do
+
+echo 
 
 
 
 
+
+
+
+
+done
 
 exit
 exit
