@@ -100,9 +100,12 @@ echo "Starting D.A.C.S UI..."
 while true #UI loop
 do
 
-echo 
-
-
+echo "-----------Root-Menu----------"
+echo "System Control"
+echo "RGB Control"
+echo "Volume"
+echo ""
+echo ""
 
 
 
