@@ -102,10 +102,10 @@ do
 
 echo "-----------Root-Menu----------"
 echo "System Control"
-echo "RGB Control"
-echo "Volume"
-echo ""
-echo ""
+echo "Static RGB Control"
+echo "Dynamic RGB Control"
+echo "Program Selection"
+echo "Music Selection"
 
 
 
