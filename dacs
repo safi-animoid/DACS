@@ -101,19 +101,28 @@ while true #UI loop
 do
 
 echo "Root Menu"
-echo ">System Control"
 echo ">Static RGB Control"
 echo ">Dynamic RGB Control"
 echo ">Program Selection"
 echo ">Music Selection"
+echo ">System Control"
+
 
 
 echo "System Control"
-echo "-"
-echo "-"
-echo "-"
+echo ">Debug Options"
+echo "-Cooling Toggle"
+echo "-Suspend D.A.C.S"
 echo "-Terminate D.A.C.S"
 echo "<Root Menu"
+
+echo "Debug Options"
+echo "-Restart Voice Engine"
+echo "-Reset GPIO Pins"
+echo "-Run Test"
+echo "-Restart D.A.C.S"
+echo "<System Control"
+
 
 
 echo "Static RGB Control"
@@ -123,6 +132,8 @@ echo "-Green Toggle"
 echo "-Init Current State"
 echo "<Root Menu"
 
+
+
 echo "Dynamic RGB Control"
 echo "-"
 echo "-"
@@ -131,12 +142,14 @@ echo "-"
 echo "<Root Menu"
 
 
+
 echo "Program Selection"
 echo "-"
 echo "-"
 echo "-"
 echo "-"
 echo "<Root Menu"
+
 
 
 echo "Music Selection"
