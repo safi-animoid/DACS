@@ -100,16 +100,51 @@ echo "Starting D.A.C.S UI..."
 while true #UI loop
 do
 
-echo "-----------Root-Menu----------"
+echo "Root Menu"
+echo ">System Control"
+echo ">Static RGB Control"
+echo ">Dynamic RGB Control"
+echo ">Program Selection"
+echo ">Music Selection"
+
+
 echo "System Control"
+echo "-"
+echo "-"
+echo "-"
+echo "-Terminate D.A.C.S"
+echo "<Root Menu"
+
+
 echo "Static RGB Control"
+echo "-Red Toggle"
+echo "-Blue Toggle"
+echo "-Green Toggle"
+echo "-Init Current State"
+echo "<Root Menu"
+
 echo "Dynamic RGB Control"
+echo "-"
+echo "-"
+echo "-"
+echo "-"
+echo "<Root Menu"
+
+
 echo "Program Selection"
+echo "-"
+echo "-"
+echo "-"
+echo "-"
+echo "<Root Menu"
+
+
 echo "Music Selection"
-
-
-
-
+echo "-"
+echo "-"
+echo "-"
+echo "-"
+echo "<Root Menu"
 
 
 done
