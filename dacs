@@ -51,7 +51,7 @@ echo "Running quick test..."
 echo "Release DMS" 
 test=$(gpio read $dms)
 while [[ "$test" = "0" ]]
-d/o
+do
 	test=$(gpio read $dms)
 	sleep 0.1
 done
@@ -112,7 +112,7 @@ echo ">System Control"
 echo "System Control"
 echo ">Debug Options"
 echo "-Cooling Toggle"
-echo "-Suspend D.A.C.S"
+echo "-Volume Toggle"
 echo "-Terminate D.A.C.S"
 echo "<Root Menu"
 
