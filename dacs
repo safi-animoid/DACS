@@ -124,7 +124,6 @@ echo "-Restart D.A.C.S"
 echo "<System Control"
 
 
-
 echo "Static RGB Control"
 echo "-Red Toggle"
 echo "-Blue Toggle"
@@ -135,13 +134,41 @@ echo "<Root Menu"
 
 
 echo "Dynamic RGB Control"
-echo "-"
+echo "-Rainbow Pulse" #test function
 echo "-"
 echo "-"
 echo "-"
 echo "<Root Menu"
 
-
+############################
+#dynamic rgb test function
+gpio export $ltg high
+gpio export $ltb high
+while true #make check if need to continue
+do
+gpio export $ltr low
+echo "		red"
+sleep 0.2
+gpio export $ltg low
+echo "		yellow"
+sleep 0.2
+gpio export $ltr high
+echo "		green"
+sleep 0.2
+gpio export $ltb low
+echo "		cyan"
+sleep 0.2
+gpio export $ltg high
+echo "		blue"
+sleep 0.2
+gpio export $ltr low
+echo "		magenta"
+sleep 0.2
+gpio export $ltg low
+echo "		white"
+sleep 3.8
+done
+############################
 
 echo "Program Selection"
 echo "-"
