@@ -180,10 +180,10 @@ echo "<Root Menu"
 
 
 echo "Music Selection"
-echo "-"
-echo "-"
-echo "-"
-echo "-"
+echo ">Synced Music"
+echo ">Unsynced Music"
+echo "-Playlist 1"
+echo "-Playlist 2"
 echo "<Root Menu"
 
 
