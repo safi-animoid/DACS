@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# What the hell was I thinking when I wrote this those years ago lol...
+
 echo "Warning! Code is currently untested and I advise you to read the source before running it."
 echo "If you wish to proceed anyway remove or comment line 6 in the source code"
 echo "Also when it comes to programing… I am what you might call the “big dumb” so expect all kinds of errors, spagetti code, and just general bad designs. You have been warned."
